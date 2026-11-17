@@ -1,31 +1,37 @@
-# Natuleadan® uandromeda™
+# Natuleadan® Andromeda™
 
 > A cybersecurity toolkit written in Rust.
 
-Technical documentation for the repository. Product scope and specifications
-live in `docs/`; work is tracked in `tareas/`.
+Andromeda is the cybersecurity repository of the Natuleadan constellation. It is written entirely in Rust and focuses on auditing, scanning and hardening tooling.
 
-## Structure
+## What it provides
+
+- Rust-only implementation with no other implementation language.
+- Auditing and scanning utilities.
+- Hardening and verification tooling.
+
+## Layout
 
 | Path | Purpose |
 |---|---|
-| `crates/` | Rust library crates, one concern per crate |
+| `crates/andromeda/` | Library crate |
 | `docs/` | Product documentation |
 | `tools/` | Validation entry points |
 
-## Validation
+## Development
 
-Run `pnpm validate` before pushing. It runs formatting, linting, tests and
-repository hygiene checks, and is the same command CI uses.
+Requires Rust 1.100 or newer and pnpm. Run the same checks locally that CI
+runs before opening a pull request.
 
-## Trademark
+```sh
+pnpm validate
+```
 
-Natuleadan® uandromeda™ is a trademark of Natuleadan.
+## Documentation
 
-## Branching workflow
+- [Architecture](docs/ARCHITECTURE.md)
+- [Contributing](CONTRIBUTING.md)
 
-`main` is the protected production branch and the default branch. `dev` is the
-protected integration branch. Work happens on short-lived branches
-(`feat/...`, `fix/...`, `docs/...`, `refactor/...`, `ci/...`) and reaches `dev`
-through a pull request; `dev` is consolidated into `main` afterwards. Never
-push directly to `main` or `dev`, and never rewrite published history.
+## License
+
+Apache-2.0. See [LICENSE](LICENSE).
