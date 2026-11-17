@@ -1,31 +1,45 @@
-# Natuleadan® uandromeda™
+# Natuleadan® Andromeda™
 
 > A cybersecurity toolkit written in Rust.
 
-Technical documentation for the repository. Product scope and specifications
-live in `docs/`; work is tracked in `tareas/`.
+## What it is
 
-## Structure
+Andromeda is the cybersecurity repository of the Natuleadan constellation. It is written entirely in Rust and focuses on auditing, scanning and hardening tooling for sovereign infrastructure.
 
-| Path | Purpose |
-|---|---|
-| `crates/` | Rust library crates, one concern per crate |
-| `docs/` | Product documentation |
-| `tools/` | Validation entry points |
+## What it provides
 
-## Validation
+It provides Rust-only security utilities, deterministic scanners and verification tooling. No other implementation language is used, keeping the supply chain and the audit surface small.
 
-Run `pnpm validate` before pushing. It runs formatting, linting, tests and
-repository hygiene checks, and is the same command CI uses.
+## Architecture
+
+Components are organized by concern in a one-way Cargo workspace. Foundational crates feed scanners and CLI tooling, which sit at the top of the graph.
+
+## Repository layout
+
+The workspace groups the library crate under `crates/`, documentation under `docs/` and validation entry points under `tools/`. All source lives in the development branch until release.
+
+## Getting started
+
+Clone `https://github.com/natuleadan/andromeda.git`. This branch holds only the
+project baseline; the source code, build manifests and full validation suite
+live in the `dev` branch. Switch to `dev` to build and run the project.
+
+## Development
+
+Work happens on short-lived branches merged into `dev`. Commits follow
+`type(scope): description` with a body of at least three bullets; commitlint
+enforces the policy locally and in CI. The `main` branch is protected and holds
+only this minimal baseline until the first release.
+
+## Status
+
+Pending initial implementation. Scope and specifications are being defined before code is written; the first published version will be 0.1.0.
+
+## License
+
+Apache-2.0. See [LICENSE](LICENSE).
 
 ## Trademark
 
-Natuleadan® uandromeda™ is a trademark of Natuleadan.
-
-## Branching workflow
-
-`main` is the protected production branch and the default branch. `dev` is the
-protected integration branch. Work happens on short-lived branches
-(`feat/...`, `fix/...`, `docs/...`, `refactor/...`, `ci/...`) and reaches `dev`
-through a pull request; `dev` is consolidated into `main` afterwards. Never
-push directly to `main` or `dev`, and never rewrite published history.
+Natuleadan® Andromeda™ is a trademark of Natuleadan. Other constellation
+repositories: Pulsar, Aurora, Pleaides, Andromeda and Orion.
